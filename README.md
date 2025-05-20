@@ -55,23 +55,10 @@ creadit_underwriting/
 - **Input:** Same JSON  
 - **Output:** Repayment capability (0 or 1) and probability
 
-📦 **Sample Input:**
-```json
-{
-  "mobile_recharge_avg": 500,
-  "recharge_frequency": 5,
-  "gps_unique_places": 10,
-  "max_daily_distance_km": 15,
-  "upi_monthly_volume": 15000,
-  "merchant_to_personal_ratio": 0.3,
-  "business_app_usage_hours": 3,
-  "upi_apps_installed": 2,
-  "device_price_tier": "mid",
-  "electricity_bill_punctuality": 1
-}
 
 
-▶️ How to Run
+
+## ▶️ How to Run
 1. Clone the repo
 2. Create a virtual environment
 3. Install dependencies
