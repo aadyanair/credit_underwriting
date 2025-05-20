@@ -1,0 +1,27 @@
+import requests
+
+url_income = "http://127.0.0.1:5000/predict_income"
+url_repayment = "http://127.0.0.1:5000/predict_repayment"
+
+sample_input = {
+    "mobile_recharge_avg": 500,
+    "recharge_frequency": 5,
+    "gps_unique_places": 10,
+    "max_daily_distance_km": 15,
+    "upi_monthly_volume": 15000,
+    "merchant_to_personal_ratio": 0.3,
+    "business_app_usage_hours": 3,
+    "upi_apps_installed": 2,
+    "device_price_tier": "mid",
+    "electricity_bill_punctuality": 1
+}
+
+# Test income prediction
+res_income = requests.post(url_income, json=sample_input)
+print("Income Status Code:", res_income.status_code)
+print("Income Raw Response:", res_income.text)
+
+# Test repayment prediction
+res_payment = requests.post(url_repayment, json=sample_input)
+print("Repayment Status Code:", res_payment.status_code)
+print("Repayment Raw Response:", res_payment.text)
