@@ -31,18 +31,6 @@ This is a lightweight Flask-based API project that predicts a user’s **monthly
 
 ---
 
-## 📁 Folder Structure
-
-creadit_underwriting/
-│
-├── app.py # Main Flask API
-├── test_api.py # Testing script using requests
-├── requirements.txt # All dependencies
-├── .gitignore # To avoid committing venv & pycache
-└── venv/ # Virtual environment (excluded)
-
----
-
 ## 📡 API Endpoints
 
 ### 1. `/predict_income`  
@@ -54,7 +42,6 @@ creadit_underwriting/
 - **Method:** `POST`  
 - **Input:** Same JSON  
 - **Output:** Repayment capability (0 or 1) and probability
-
 
 
 
@@ -71,7 +58,7 @@ venv\Scripts\activate        # for Windows
 pip install -r requirements.txt
 python app.py
 
-To test API:
+### To test API:
 python test_api.py
 
 Made with 💖 by @aadyanair
