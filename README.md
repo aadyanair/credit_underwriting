@@ -9,6 +9,7 @@ This is a lightweight Flask-based API project that predicts a user’s **monthly
 
 ## 🔍 What It Does
 
+
 - ✅ **Predicts Monthly Income** using Random Forest Regressor  
 - ✅ **Classifies Repayment Capability** using Logistic Regression  
 - ✅ Uses behavioral features like:
@@ -51,14 +52,5 @@ This is a lightweight Flask-based API project that predicts a user’s **monthly
 3. Install dependencies
 4. Run the Flask app
 
-git clone https://github.com/yourusername/creadit_underwriting.git
-cd creadit_underwriting
-python -m venv venv
-venv\Scripts\activate        # for Windows
-pip install -r requirements.txt
-python app.py
-
-### To test API:
-python test_api.py
 
 Made with 💖 by @aadyanair
