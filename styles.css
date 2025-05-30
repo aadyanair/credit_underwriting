@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #001a3d, #003366);
+  color: #e0f0ff;
+  overflow: hidden;
+}
+
+/* Neon Glow Blobs */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(150px);
+  opacity: 0.5;
+  mix-blend-mode: screen;
+  animation: pulseFloat 15s ease-in-out infinite;
+}
+.blob1 {
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, #3399FF, transparent 70%);
+  top: -150px; left: -150px;
+}
+.blob2 {
+  width: 480px; height: 480px;
+  background: radial-gradient(circle, #66B2FF, transparent 75%);
+  bottom: -130px; right: -100px;
+}
+.blob3 {
+  width: 460px; height: 460px;
+  background: radial-gradient(circle, #00ccff, transparent 70%);
+  top: 200px; right: 150px;
+}
+
+@keyframes pulseFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+  50%      { transform: translate(20px, 15px) scale(1.1); opacity: 0.75; }
+}
+
+/* Layout container */
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  padding: 60px 100px;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Left content */
+.left {
+  flex: 1 1 500px;
+  max-width: 600px;
+  animation: fadeSlideInLeft 1.2s ease forwards;
+  opacity: 0;
+  transform: translateX(-40px);
+  backdrop-filter: blur(10px);
+}
+.left h1 {
+  font-size: 60px;
+  font-weight: 700;
+  color: #cce6ff;
+  text-shadow: 0 0 18px #3399FFcc;
+  margin-bottom: 20px;
+}
+.left p {
+  font-size: 22px;
+  color: #d0e7ffcc;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+/* Buttons */
+.btn-group {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+button {
+  padding: 16px 48px;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 40px;
+  border: 2px solid #66B2FF;
+  background: rgba(0, 26, 61, 0.3);
+  color: #e0f8ff;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow:
+    0 0 10px #3399FF88,
+    0 0 20px #3399FF33 inset;
+  backdrop-filter: blur(6px);
+}
+button:hover {
+  background: #66B2FF;
+  color: #001f3d;
+  box-shadow: 0 0 30px #66B2FFcc;
+  transform: scale(1.08);
+}
+
+/* Right image */
+.right {
+  flex: 1 1 450px;
+  max-width: 450px;
+  display: flex;
+  justify-content: center;
+  animation: fadeSlideInRight 1.2s ease forwards;
+  opacity: 0;
+  transform: translateX(40px);
+}
+.right img {
+  width: 100%;
+  max-width: 460px;
+  border-radius: 30px;
+  object-fit: contain;
+  animation: floatImg 6s ease-in-out infinite;
+  box-shadow:
+    0 20px 40px rgba(51, 153, 255, 0.6),
+    0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Header */
+header {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90vw;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 20;
+}
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  color: #80bfff;
+  text-transform: uppercase;
+  text-shadow: 0 0 15px #66B2FFaa;
+  line-height: 1.2;
+  letter-spacing: 3px;
+}
+nav a {
+  color: #cce6ffdd;
+  text-decoration: none;
+  margin-left: 40px;
+  font-weight: 600;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+nav a:hover {
+  color: #66B2FF;
+  text-shadow: 0 0 6px #3399FFaa;
+}
+
+/* Animations */
+@keyframes fadeSlideInLeft {
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeSlideInRight {
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes floatImg {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-15px); }
+}
+
+/* Responsive Design */
+@media (max-width: 1100px) {
+  .container {
+    flex-direction: column;
+    padding: 40px 20px;
+    gap: 40px;
+  }
+  .left, .right {
+    max-width: 100%;
+    text-align: center;
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .right img {
+    max-width: 400px;
+  }
+  header {
+    flex-direction: column;
+    gap: 15px;
+    top: 20px;
+  }
+  nav a {
+    margin-left: 20px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 450px) {
+  .left h1 { font-size: 36px; }
+  .left p  { font-size: 16px; }
+  button   { width: 100%; padding: 14px 0; }
+  nav a    { margin-left: 10px; font-size: 13px; }
+}
