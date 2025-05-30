@@ -4,17 +4,18 @@ url_income = "http://127.0.0.1:5000/predict_income"
 url_repayment = "http://127.0.0.1:5000/predict_repayment"
 
 sample_input = {
-    "mobile_recharge_avg": 500,
-    "recharge_frequency": 5,
-    "gps_unique_places": 10,
-    "max_daily_distance_km": 15,
-    "upi_monthly_volume": 15000,
-    "merchant_to_personal_ratio": 0.3,
-    "business_app_usage_hours": 3,
-    "upi_apps_installed": 2,
-    "device_price_tier": "mid",
-    "electricity_bill_punctuality": 1
+    "mobile_recharge_avg": 120,
+    "recharge_frequency": 2,
+    "gps_unique_places": 3,
+    "max_daily_distance_km": 5,
+    "upi_monthly_volume": 1000,
+    "merchant_to_personal_ratio": 0.1,
+    "business_app_usage_hours": 0.5,
+    "upi_apps_installed": 1,
+    "device_price_tier": "low",
+    "electricity_bill_punctuality": 0
 }
+
 
 # Test income prediction
 res_income = requests.post(url_income, json=sample_input)

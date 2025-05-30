@@ -38,12 +38,17 @@ def generate_synthetic_data(n=100):
     ).clip(lower=1000) # minimum income 1000
 
     # Target: repayment capability (binary)
-    data['repayment'] = ((data['income'] > 20000) & (data['electricity_bill_punctuality'] == 1)).astype(int)
+    data['repayment'] = ((data['income'] > 15000) | (data['electricity_bill_punctuality'] == 1)).astype(int)
 
     return data, le
 
+
 # Generate data and label encoder
 data, le_device = generate_synthetic_data()
+
+repayment_counts = data['repayment'].value_counts()
+print("Repayment Class Distribution:")
+print(repayment_counts)
 
 # Features and targets
 feature_cols = [
@@ -57,7 +62,7 @@ y_repayment = data['repayment']
 income_model = RandomForestRegressor(n_estimators=100, random_state=42)
 income_model.fit(X,y_income)
 
-repayment_model = LogisticRegression()
+repayment_model = LogisticRegression(class_weight='balanced')
 repayment_model.fit(X, y_repayment)
 
 # Step 3: Define helper to preprocess input JSON
