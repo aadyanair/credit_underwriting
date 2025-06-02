@@ -52,5 +52,3 @@ This is a lightweight Flask-based API project that predicts a user’s **monthly
 3. Install dependencies
 4. Run the Flask app
 
-
-Made with 💖 by @aadyanair
